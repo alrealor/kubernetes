@@ -1,0 +1,26 @@
+Kubernetes commands
+----------------------
+
+* get kubernetes nodes (-o wide to bring extra details)
+  $ kubectl get nodes -o wide
+
+* Get all available deployments, services, pods and replicas
+  $ kubectl get all
+  
+* Get general info about deployment, services, pods, replicas
+  $ kubectl get deployments/services/pods/replicasets
+  
+* Get detailed info for deployments, services, pods, replicas
+  $ kubectl describe deployment {DEPLOYMENT-ID}
+  
+* Scale pods to set replica numbers
+  $ kubectl scale --replicas=2 deployment hello-app-deployment
+  
+* Delete deploymemt, service, pod, replicates
+  $ kubectl delete pod {POD-ID: hello-app-deployment-8564bdb55c-m7nmh}
+
+* Change pod label so that services can NOT longer reach the pod , this way the traffic wont be send to that pod but the pod still will keep alive
+  $ kubectl label pod {POD-ID: hello-app-deployment-8564bdb55c-m7nmh} app=cuarentena --overwrite
+
+
+
